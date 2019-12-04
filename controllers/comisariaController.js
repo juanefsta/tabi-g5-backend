@@ -3,7 +3,7 @@ Comisaria = require('./../models/comisariaModel');
 
 // Handle index actions
 exports.get = function (req, res) {
-    console.log("GET_COMISARIAS")
+    console.log('Comisarias');
     Comisaria.get(function (err, comisarias) {
         if (err) {
             res.json({

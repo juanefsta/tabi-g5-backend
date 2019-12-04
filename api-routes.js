@@ -17,9 +17,6 @@ var municipioController = require('./controllers/municipioController');
 // comisaria routes
 router.route('/comisarias')
     .get(comisariaController.get);
-router.route('/comisarias/:comisaria_id')
-    .get(comisariaController.getById);
-
 // centros routes
 router.route('/centros')
     .get(centroController.get);
@@ -27,6 +24,9 @@ router.route('/centros')
 // municipio routes
 router.route('/municipios')
     .get(municipioController.get);
+
+router.route('/municipios/:nombre')
+    .get(municipioController.getByNombre);
 
 
 // Export API routes

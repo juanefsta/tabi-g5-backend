@@ -8,7 +8,5 @@ var comisariaSchema = mongoose.Schema({
 });
 
 // Export Comisaria model
-var Comisaria = module.exports = mongoose.model('comisaria', comisariaSchema);
-module.exports.get = function (callback, limit) {
-    Comisaria.find(callback).limit(limit);
-}
+var Comisaria = mongoose.model('comisaria', comisariaSchema);
+module.exports = Comisaria;

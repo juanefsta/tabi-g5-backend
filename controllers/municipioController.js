@@ -17,3 +17,18 @@ exports.get = function (req, res) {
         });
     }));
 };
+exports.getByNombre = function (req, res) {
+    Municipio.find({nombre:  new RegExp('\\b' +  req.params.nombre + '\\b', 'i')}).exec((function (err, centros) {
+        if (err) {
+            res.json({
+                status: "error",
+                message: err,
+            });
+        }
+        res.json({
+            status: "success",
+            message: "municipios obtenidas satisfactoriamente",
+            data: centros
+        });
+    }));
+};

@@ -17,7 +17,5 @@ var centroSchema = mongoose.Schema({
 });
 
 // Export Comisaria model
-var Centro =  module.exports = mongoose.model('centros', centroSchema);
-module.exports.get = function (callback, limit) {
-    Centro.find(callback).limit(limit);
-}
+var Centro = mongoose.model('centros', centroSchema);
+module.exports = Centro;

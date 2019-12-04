@@ -3,8 +3,7 @@ Comisaria = require('./../models/comisariaModel');
 
 // Handle index actions
 exports.get = function (req, res) {
-    console.log('Comisarias');
-    Comisaria.get(function (err, comisarias) {
+    Comisaria.find({}).exec((function (err, comisarias) {
         if (err) {
             res.json({
                 status: "error",
@@ -16,17 +15,5 @@ exports.get = function (req, res) {
             message: "Comisarias obtenidas satisfactoriamente",
             data: comisarias
         });
-    });
-};
-
-// Handle view comisaria info
-exports.getById = function (req, res) {
-    Comisaria.findById(req.params.comisaria_id, function (err, comisaria) {
-        if (err)
-            res.send(err);
-        res.json({
-            message: 'Comisaria details loading..',
-            data: comisaria
-        });
-    });
+    }));
 };

@@ -3,7 +3,7 @@ Centro = require('./../models/centroModel');
 
 // Handle index actions
 exports.get = function (req, res) {
-    Centro.get(function (err, centros) {
+    Centro.find({}).exec((function (err, centros) {
         if (err) {
             res.json({
                 status: "error",
@@ -15,5 +15,5 @@ exports.get = function (req, res) {
             message: "centros obtenidas satisfactoriamente",
             data: centros
         });
-    });
+    }));
 };

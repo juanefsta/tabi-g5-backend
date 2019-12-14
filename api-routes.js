@@ -13,6 +13,8 @@ router.get('/', function (req, res) {
 var comisariaController = require('./controllers/comisariaController');
 var centroController = require('./controllers/centrosController');
 var municipioController = require('./controllers/municipioController');
+var lineaController = require('./controllers/lineaController');
+var densidadController = require('./controllers/densidadController');
 
 // comisaria routes
 router.route('/comisarias')
@@ -28,6 +30,13 @@ router.route('/municipios')
 router.route('/municipios/:nombre')
     .get(municipioController.getByNombre);
 
+// Linea controller    
+router.route('/linea')
+    .get(lineaController.get);
+
+// densidad controller    
+router.route('/densidad')
+    .get(densidadController.get);
 
 // Export API routes
 module.exports = router;
